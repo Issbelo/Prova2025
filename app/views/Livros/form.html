@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Formulário' /}
+
+<h1>Cadastrar livro</h1>
+
+<form action=@{Livros.salvar()}>
+<label>Título</label>
+<input type="text" name="l.titulo"> <br>
+<label>Preço</label>
+<input type="number" step="0.01" name="l.preco"> <br>
+<label>Estoque</label>
+<input type="number" step="1" name="l.estoque"> <br>
+<label>Gênero</label>
+<select name="l.genero">
+<option value="Romance">Romance</option>
+<option value="Terror">Terror</option>
+<option value="Fantasia">Fantasia</option>
+<option value="Infantil">Infantil</option>
+</select><br>
+<input type="submit" value="Cadastrar">
+</form> <br>
+<a href=@{Livros.listar()}>Lista de livros</a>

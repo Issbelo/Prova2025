@@ -1,0 +1,29 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Lista de livros</h1>
+ <table>
+ <tr>
+  <th>Título</th>
+  <th>Preço</th>
+  <th>Estoque</th>
+  <th>Gênero</th>
+  <th>Remover</th>
+  <th>Editar</th>
+ </tr>
+  #{list items:lista, as: 'l'}
+ <tr>
+  <td>${l.titulo}</td>
+  <td>${l.preco}</td>
+  <td>${l.estoque}</td>
+  <td>${l.genero}</td>
+  <td><a href=@{Livros.remover(l.id)}>🗑️</a></td>
+  <td><a href=@{Livros.editar(l.id)}>✏️</a></td>
+ </tr>
+  #{/list}
+   #{else}
+ <td colspan="5">Nenhum livro cadastrado</td>
+ #{/else}
+ </table>
+ <p>Existem ${total} livros em estoque.</p> <br>
+ <a href=@{Livros.form()}>Cadastrar novo livro</a>
